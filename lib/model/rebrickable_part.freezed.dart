@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'rebrickable_part.dart';
 
@@ -67,7 +67,7 @@ class _$RebrickablePartCopyWithImpl<$Res, $Val extends RebrickablePart>
     Object? name = null,
     Object? imgUrl = null,
     Object? url = null,
-    Object? externalIds = null,
+    Object? externalIds = freezed,
   }) {
     return _then(_value.copyWith(
       partNum: null == partNum
@@ -86,7 +86,7 @@ class _$RebrickablePartCopyWithImpl<$Res, $Val extends RebrickablePart>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      externalIds: null == externalIds
+      externalIds: freezed == externalIds
           ? _value.externalIds
           : externalIds // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -125,7 +125,7 @@ class __$$_RebrickablePartCopyWithImpl<$Res>
     Object? name = null,
     Object? imgUrl = null,
     Object? url = null,
-    Object? externalIds = null,
+    Object? externalIds = freezed,
   }) {
     return _then(_$_RebrickablePart(
       null == partNum
@@ -144,7 +144,7 @@ class __$$_RebrickablePartCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      null == externalIds
+      freezed == externalIds
           ? _value.externalIds
           : externalIds // ignore: cast_nullable_to_non_nullable
               as dynamic,

@@ -2,70 +2,61 @@ import 'dart:io';
 
 import 'package:brick_lib/logger.dart';
 import 'package:brick_lib/model/rebrickable_part.dart';
+import 'package:brick_lib/model/rebrickable_part_list.dart';
+import 'package:brick_lib/request/GetPartDetail.dart';
+import 'package:brick_lib/request/GetPartDetailFromList.dart';
+import 'package:brick_lib/request/GetUserPartLists.dart';
+import 'package:brick_lib/request/login_request.dart';
+import 'package:brick_lib/request/request.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-
-const RB_API_KEY = "7b423bf9ee261e028961b243162b9499";
-const API_URL = "https://rebrickable.com/api/v3";
 
 class RebrickableService {
   final Logger log = getLogger("RebrickableService");
 
-  Future<RebrickablePart?> getPartDetail(String partNum) async {
-    Dio dio = await getDio();
-
-    log.i("Getting details for part $partNum");
-    final String serviceurl = "$API_URL/lego/parts/$partNum";
-
+  Future<String?> login(username, password) async {
+    log.i("Getting usertoken");
     try {
-      final Response resp = await dio.get(
-        serviceurl,
-      );
+      final String? token = await LoginRequest(username, password).send();
 
-      return RebrickablePart.fromJson(resp.data);
+      return token;
     } catch (e) {
-      DioError error = e as DioError;
-      final Response? resp = error.response;
-      print(resp?.data);
+      log.e(e.toString());
+    }
+    return null;
+  }
+
+  Future<RebrickablePart?> getPartDetail(String partNum) async {
+    log.i("Getting part detail for $partNum");
+    try {
+      final RebrickablePart? part = await GetPartDetail(partNum).send();
+
+      return part;
+    } catch (e) {
+      log.e(e);
       return null;
     }
   }
 
   Future<List<RebrickablePart>?> getPartsDetail(List<String> parts) async {
-    Dio dio = await getDio();
-
-    log.i("Getting details for parts $parts");
-    const String serviceurl = "$API_URL/lego/parts/";
-
     try {
-      final Response<dynamic> resp = await dio.get(serviceurl, queryParameters: {"part_nums": parts.join(',')});
+      final results = await GetPartDetailFromList(parts).send();
 
-      final List<dynamic> results = resp.data?["results"];
-
-      return results?.map((e) => RebrickablePart.fromJson(e)).toList();
+      return results;
     } catch (e) {
-      DioError error = e as DioError;
-      final Response? resp = error.response;
-      print(resp?.data);
+      log.e(e);
       return null;
     }
   }
-}
 
-///
-/// Liefert eine Dio Instanz mit Cookie Provider
-/// async ist nötig für persistente Cookies. Um an das App Dir zu kommen
-///
-Future<Dio> getDio() async {
-  Dio dio = Dio();
+  Future<List<RebrickablePartList>?> getUserPartLists(String userToken) async {
+    try {
+      final results = await GetUserPartLists(userToken).send();
 
-  dio.interceptors
-      .add(InterceptorsWrapper(onRequest: (RequestOptions options, RequestInterceptorHandler handler) async {
-    //Set the token to headers
-    options.headers[HttpHeaders.authorizationHeader] = "key $RB_API_KEY";
-
-    return handler.next(options); //continue
-  }));
-
-  return dio;
+      return results;
+    } catch (e) {
+      log.e(e);
+      return null;
+    }
+  }
 }

@@ -9,4 +9,4 @@ echo "Description: $description"
 
 git tag -a $version -m "$description Release von $version" --force
 
-git push origin --tags --force
+git push origin2 --tags --force
