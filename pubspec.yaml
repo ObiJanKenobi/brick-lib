@@ -1,6 +1,7 @@
 name: brick_lib
-description: A new Flutter project.
-version: 0.0.2
+description: Base lib for Brick Converter and Brick Collector Apps
+version: 0.0.3
+publish_to: none
 homepage:
 
 environment:
