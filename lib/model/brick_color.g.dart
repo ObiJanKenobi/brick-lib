@@ -6,8 +6,7 @@ part of 'brick_color.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BrickColor _$$_BrickColorFromJson(Map<String, dynamic> json) =>
-    _$_BrickColor(
+_$BrickColorImpl _$$BrickColorImplFromJson(Map<String, dynamic> json) => _$BrickColorImpl(
       legoColor: json['legoColor'] as String,
       bricklinkColor: json['bricklinkColor'] as String,
       rebrickableColor: json['rebrickableColor'] as String,
@@ -17,8 +16,7 @@ _$_BrickColor _$$_BrickColorFromJson(Map<String, dynamic> json) =>
       rgb: json['rgb'] as String,
     );
 
-Map<String, dynamic> _$$_BrickColorToJson(_$_BrickColor instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$BrickColorImplToJson(_$BrickColorImpl instance) => <String, dynamic>{
       'legoColor': instance.legoColor,
       'bricklinkColor': instance.bricklinkColor,
       'rebrickableColor': instance.rebrickableColor,

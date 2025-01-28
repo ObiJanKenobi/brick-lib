@@ -12,7 +12,7 @@ part of 'brick_color.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BrickColor _$BrickColorFromJson(Map<String, dynamic> json) {
   return _BrickColor.fromJson(json);
@@ -21,42 +21,41 @@ BrickColor _$BrickColorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BrickColor {
   String get legoColor => throw _privateConstructorUsedError;
+
   String get bricklinkColor => throw _privateConstructorUsedError;
+
   String get rebrickableColor => throw _privateConstructorUsedError;
+
   String get goBrickColor => throw _privateConstructorUsedError;
+
   String get lddName => throw _privateConstructorUsedError;
+
   String get name => throw _privateConstructorUsedError;
+
   String get rgb => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
-  $BrickColorCopyWith<BrickColor> get copyWith =>
-      throw _privateConstructorUsedError;
+  $BrickColorCopyWith<BrickColor> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $BrickColorCopyWith<$Res> {
-  factory $BrickColorCopyWith(
-          BrickColor value, $Res Function(BrickColor) then) =
-      _$BrickColorCopyWithImpl<$Res, BrickColor>;
+  factory $BrickColorCopyWith(BrickColor value, $Res Function(BrickColor) then) = _$BrickColorCopyWithImpl<$Res, BrickColor>;
+
   @useResult
   $Res call(
-      {String legoColor,
-      String bricklinkColor,
-      String rebrickableColor,
-      String goBrickColor,
-      String lddName,
-      String name,
-      String rgb});
+      {String legoColor, String bricklinkColor, String rebrickableColor, String goBrickColor, String lddName, String name, String rgb});
 }
 
 /// @nodoc
-class _$BrickColorCopyWithImpl<$Res, $Val extends BrickColor>
-    implements $BrickColorCopyWith<$Res> {
+class _$BrickColorCopyWithImpl<$Res, $Val extends BrickColor> implements $BrickColorCopyWith<$Res> {
   _$BrickColorCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -105,30 +104,19 @@ class _$BrickColorCopyWithImpl<$Res, $Val extends BrickColor>
 }
 
 /// @nodoc
-abstract class _$$_BrickColorCopyWith<$Res>
-    implements $BrickColorCopyWith<$Res> {
-  factory _$$_BrickColorCopyWith(
-          _$_BrickColor value, $Res Function(_$_BrickColor) then) =
-      __$$_BrickColorCopyWithImpl<$Res>;
+abstract class _$$BrickColorImplCopyWith<$Res> implements $BrickColorCopyWith<$Res> {
+  factory _$$BrickColorImplCopyWith(_$BrickColorImpl value, $Res Function(_$BrickColorImpl) then) = __$$BrickColorImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
-      {String legoColor,
-      String bricklinkColor,
-      String rebrickableColor,
-      String goBrickColor,
-      String lddName,
-      String name,
-      String rgb});
+      {String legoColor, String bricklinkColor, String rebrickableColor, String goBrickColor, String lddName, String name, String rgb});
 }
 
 /// @nodoc
-class __$$_BrickColorCopyWithImpl<$Res>
-    extends _$BrickColorCopyWithImpl<$Res, _$_BrickColor>
-    implements _$$_BrickColorCopyWith<$Res> {
-  __$$_BrickColorCopyWithImpl(
-      _$_BrickColor _value, $Res Function(_$_BrickColor) _then)
-      : super(_value, _then);
+class __$$BrickColorImplCopyWithImpl<$Res> extends _$BrickColorCopyWithImpl<$Res, _$BrickColorImpl>
+    implements _$$BrickColorImplCopyWith<$Res> {
+  __$$BrickColorImplCopyWithImpl(_$BrickColorImpl _value, $Res Function(_$BrickColorImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -141,7 +129,7 @@ class __$$_BrickColorCopyWithImpl<$Res>
     Object? name = null,
     Object? rgb = null,
   }) {
-    return _then(_$_BrickColor(
+    return _then(_$BrickColorImpl(
       legoColor: null == legoColor
           ? _value.legoColor
           : legoColor // ignore: cast_nullable_to_non_nullable
@@ -176,8 +164,8 @@ class __$$_BrickColorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BrickColor with DiagnosticableTreeMixin implements _BrickColor {
-  const _$_BrickColor(
+class _$BrickColorImpl with DiagnosticableTreeMixin implements _BrickColor {
+  const _$BrickColorImpl(
       {required this.legoColor,
       required this.bricklinkColor,
       required this.rebrickableColor,
@@ -186,8 +174,7 @@ class _$_BrickColor with DiagnosticableTreeMixin implements _BrickColor {
       required this.name,
       required this.rgb});
 
-  factory _$_BrickColor.fromJson(Map<String, dynamic> json) =>
-      _$$_BrickColorFromJson(json);
+  factory _$BrickColorImpl.fromJson(Map<String, dynamic> json) => _$$BrickColorImplFromJson(json);
 
   @override
   final String legoColor;
@@ -224,18 +211,14 @@ class _$_BrickColor with DiagnosticableTreeMixin implements _BrickColor {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BrickColor &&
-            (identical(other.legoColor, legoColor) ||
-                other.legoColor == legoColor) &&
-            (identical(other.bricklinkColor, bricklinkColor) ||
-                other.bricklinkColor == bricklinkColor) &&
-            (identical(other.rebrickableColor, rebrickableColor) ||
-                other.rebrickableColor == rebrickableColor) &&
-            (identical(other.goBrickColor, goBrickColor) ||
-                other.goBrickColor == goBrickColor) &&
+            other is _$BrickColorImpl &&
+            (identical(other.legoColor, legoColor) || other.legoColor == legoColor) &&
+            (identical(other.bricklinkColor, bricklinkColor) || other.bricklinkColor == bricklinkColor) &&
+            (identical(other.rebrickableColor, rebrickableColor) || other.rebrickableColor == rebrickableColor) &&
+            (identical(other.goBrickColor, goBrickColor) || other.goBrickColor == goBrickColor) &&
             (identical(other.lddName, lddName) || other.lddName == lddName) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.rgb, rgb) || other.rgb == rgb));
@@ -243,18 +226,16 @@ class _$_BrickColor with DiagnosticableTreeMixin implements _BrickColor {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, legoColor, bricklinkColor,
-      rebrickableColor, goBrickColor, lddName, name, rgb);
+  int get hashCode => Object.hash(runtimeType, legoColor, bricklinkColor, rebrickableColor, goBrickColor, lddName, name, rgb);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BrickColorCopyWith<_$_BrickColor> get copyWith =>
-      __$$_BrickColorCopyWithImpl<_$_BrickColor>(this, _$identity);
+  _$$BrickColorImplCopyWith<_$BrickColorImpl> get copyWith => __$$BrickColorImplCopyWithImpl<_$BrickColorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BrickColorToJson(
+    return _$$BrickColorImplToJson(
       this,
     );
   }
@@ -268,27 +249,32 @@ abstract class _BrickColor implements BrickColor {
       required final String goBrickColor,
       required final String lddName,
       required final String name,
-      required final String rgb}) = _$_BrickColor;
+      required final String rgb}) = _$BrickColorImpl;
 
-  factory _BrickColor.fromJson(Map<String, dynamic> json) =
-      _$_BrickColor.fromJson;
+  factory _BrickColor.fromJson(Map<String, dynamic> json) = _$BrickColorImpl.fromJson;
 
   @override
   String get legoColor;
+
   @override
   String get bricklinkColor;
+
   @override
   String get rebrickableColor;
+
   @override
   String get goBrickColor;
+
   @override
   String get lddName;
+
   @override
   String get name;
+
   @override
   String get rgb;
+
   @override
   @JsonKey(ignore: true)
-  _$$_BrickColorCopyWith<_$_BrickColor> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$BrickColorImplCopyWith<_$BrickColorImpl> get copyWith => throw _privateConstructorUsedError;
 }

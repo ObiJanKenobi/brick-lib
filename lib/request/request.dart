@@ -67,9 +67,9 @@ abstract class Request<T> {
     dio.options.receiveDataWhenStatusError = true;
 
     if (!Debug.debugEnabled) {
-      dio.options.connectTimeout = timeoutInSeconds * 1000;
-      dio.options.receiveTimeout = timeoutInSeconds * 1000;
-      dio.options.sendTimeout = timeoutInSeconds * 1000;
+      dio.options.connectTimeout = Duration(seconds: timeoutInSeconds);
+      dio.options.receiveTimeout = Duration(seconds: timeoutInSeconds);
+      dio.options.sendTimeout = Duration(seconds: timeoutInSeconds);
     }
     _dio = dio;
     _initialized = true;
@@ -173,6 +173,7 @@ abstract class Request<T> {
     String body;
     try {
       body = "--data '${json.encode(payload)}'";
+      body = "--queryParams '${json.encode(queryParams)}'";
     } catch (e) {
       body = "--data 'NONREADABLE'";
     }

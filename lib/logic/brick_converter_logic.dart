@@ -44,7 +44,7 @@ class BrickConverterLogic {
           part: parts[0],
           color: parts[1],
           quantity: int.parse(parts[2]),
-          colorName: "",
+          colorName: "No Color/Any Color",
           gobricksColor: "",
           bricklinkColor: "",
           bricklinkId: "",
@@ -123,7 +123,7 @@ class BrickConverterLogic {
   }
 
   _fetchDetails(List<BrickPart> parts) async {
-    final rbIds = parts.map((e) => e.part).toList();
+    final rbIds = parts.map((e) => e.part!).toList();
     final details = await service.getPartsDetail(rbIds);
 
     details?.forEach((detail) {

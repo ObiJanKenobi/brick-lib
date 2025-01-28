@@ -34,10 +34,26 @@ void main() {
     expect(part, isList);
     expect(part, isNotEmpty);
   });
+  test('Should get part categories', () async {
+    final service = RebrickableService();
+
+    final categories = await service.getPartCategories();
+
+    expect(categories, isList);
+    expect(categories, isNotEmpty);
+  });
   test('Should get user part lists', () async {
     final service = RebrickableService();
 
-    final part = await service.getUserPartLists(USER_TOKEN);
+    final part = await service.getUserPartLists();
+
+    expect(part, isList);
+    expect(part, isNotEmpty);
+  });
+  test('Should get colors', () async {
+    final service = RebrickableService();
+
+    final part = await service.getColors();
 
     expect(part, isList);
     expect(part, isNotEmpty);

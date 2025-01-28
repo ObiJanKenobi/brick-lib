@@ -7,7 +7,7 @@ class GetPartDetailFromList extends Request<List<RebrickablePart>?> {
   String get path => '/lego/parts/';
 
   @override
-  get queryParams => {"part_nums": parts.join(',')};
+  get queryParams => {"part_nums": parts.join(','), 'page_size': 1000};
 
   final List<String> parts;
 
