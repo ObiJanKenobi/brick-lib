@@ -1,6 +1,6 @@
 name: brick_lib
 description: Base lib for Brick Converter and Brick Collector Apps
-version: 0.0.5
+version: 0.0.6
 publish_to: none
 
 environment:
@@ -19,7 +19,7 @@ dependencies:
 
   json_annotation: ^4.8.1
 
-  file_picker: 8.1.7
+  file_picker: 8.3.1
 
   get_it: ^7.2.0
   get_it_mixin: ^3.1.4
@@ -96,9 +96,9 @@ flutter:
       # fonts:
       #   - family: Schyler
       #     fonts:
-      #       - asset: fonts/Schyler-Regular.ttf
-      #       - asset: fonts/Schyler-Italic.ttf
-      #         style: italic
+    #       - asset: fonts/Schyler-Regular.ttf
+    #       - asset: fonts/Schyler-Italic.ttf
+    #         style: italic
     #   - family: Trajan Pro
     #     fonts:
     #       - asset: fonts/TrajanPro.ttf
