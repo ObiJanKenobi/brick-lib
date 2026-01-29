@@ -86,7 +86,7 @@ class BrickConverterLogic {
 
   _loadColors() async {
     String data = await rootBundle.loadString('packages/brick_lib/assets/color_table.csv');
-    List<String> contentColors = data.split("\r\n");
+    List<String> contentColors = data.split("\n");
 
     _colors = [];
 
@@ -110,7 +110,7 @@ class BrickConverterLogic {
 
   _loadGoBricks() async {
     String data = await rootBundle.loadString('packages/brick_lib/assets/gobrick_conversion_table.csv');
-    List<String> bricks = data.split("\r\n");
+    List<String> bricks = data.split("\n");
 
     // Build gobricks map
     for (var i = 0; i < bricks.length; i++) {
