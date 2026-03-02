@@ -1,0 +1,9 @@
+# GoBricks Mapping - Manual Review
+# Generated 2026-03-02 12:14:14
+
+## Fuzzy matches (70-90% confidence) - verify and add manually
+
+GDS Number      GDS Description                                    Lego Part?       Score
+------------------------------------------------------------------------------------------
+GDS-M239        Cone 1 1/6 x 1 1/6 x 2/3 (Fez)                     85975            82.8%
+GDS-2049        Tire 56 x 26 Tractor                               70695            75.0%
