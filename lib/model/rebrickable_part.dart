@@ -14,6 +14,7 @@ class RebrickablePart {
     this.imgUrl,
     this.url,
     this.externalIds,
+    this.partCatId,
   });
 
   @JsonKey(name: 'part_num')
@@ -23,6 +24,8 @@ class RebrickablePart {
   String? imgUrl;
   @JsonKey(name: 'part_url')
   String? url;
+  @JsonKey(name: 'part_cat_id')
+  int? partCatId;
 
   @Ignore()
   @JsonKey(name: 'external_ids')

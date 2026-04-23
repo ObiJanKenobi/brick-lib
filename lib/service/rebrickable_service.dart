@@ -177,18 +177,35 @@ class RebrickableService {
     }
   }
 
-  Future<List<RebrickablePartListItem>?> getUserParts({String? partNum, String? colorId, int? partCategoryId}) async {
+  Future<List<RebrickablePartListItem>?> getUserParts({
+    String? partNum,
+    String? colorId,
+    int? partCategoryId,
+    void Function(int page, int itemsSoFar, bool hasMore)? onPage,
+  }) async {
     assert(_userToken != null);
-    try {
-      final results = await GetUserPartsByPartNum(_userToken!,
-              part: partNum, colorId: colorId != null ? [colorId!] : null, partCategoryId: partCategoryId)
-          .send();
-
-      return results;
-    } catch (e) {
-      log.e(e);
-      return null;
+    final all = <RebrickablePartListItem>[];
+    var page = 1;
+    while (true) {
+      try {
+        final result = await _retry(() => GetUserPartsByPartNum(
+              _userToken!,
+              part: partNum,
+              colorId: colorId,
+              partCategoryId: partCategoryId,
+              page: page,
+            ).send());
+        if (result == null) return null;
+        all.addAll(result.items);
+        onPage?.call(page, all.length, result.hasNext);
+        if (!result.hasNext) break;
+        page++;
+      } catch (e) {
+        log.e(e);
+        return all.isEmpty ? null : all;
+      }
     }
+    return all;
   }
 
   static const _defaultSpacing = Duration(milliseconds: 250);

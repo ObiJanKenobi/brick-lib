@@ -23,13 +23,18 @@ const RebrickablePartSchema = Schema(
       name: r'name',
       type: IsarType.string,
     ),
-    r'partNum': PropertySchema(
+    r'partCatId': PropertySchema(
       id: 2,
+      name: r'partCatId',
+      type: IsarType.long,
+    ),
+    r'partNum': PropertySchema(
+      id: 3,
       name: r'partNum',
       type: IsarType.string,
     ),
     r'url': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'url',
       type: IsarType.string,
     )
@@ -81,8 +86,9 @@ void _rebrickablePartSerialize(
 ) {
   writer.writeString(offsets[0], object.imgUrl);
   writer.writeString(offsets[1], object.name);
-  writer.writeString(offsets[2], object.partNum);
-  writer.writeString(offsets[3], object.url);
+  writer.writeLong(offsets[2], object.partCatId);
+  writer.writeString(offsets[3], object.partNum);
+  writer.writeString(offsets[4], object.url);
 }
 
 RebrickablePart _rebrickablePartDeserialize(
@@ -94,8 +100,9 @@ RebrickablePart _rebrickablePartDeserialize(
   final object = RebrickablePart(
     imgUrl: reader.readStringOrNull(offsets[0]),
     name: reader.readStringOrNull(offsets[1]),
-    partNum: reader.readStringOrNull(offsets[2]),
-    url: reader.readStringOrNull(offsets[3]),
+    partCatId: reader.readLongOrNull(offsets[2]),
+    partNum: reader.readStringOrNull(offsets[3]),
+    url: reader.readStringOrNull(offsets[4]),
   );
   return object;
 }
@@ -112,8 +119,10 @@ P _rebrickablePartDeserializeProp<P>(
     case 1:
       return (reader.readStringOrNull(offset)) as P;
     case 2:
-      return (reader.readStringOrNull(offset)) as P;
+      return (reader.readLongOrNull(offset)) as P;
     case 3:
+      return (reader.readStringOrNull(offset)) as P;
+    case 4:
       return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -426,6 +435,80 @@ extension RebrickablePartQueryFilter
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
         value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partCatIdIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'partCatId',
+      ));
+    });
+  }
+
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partCatIdIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'partCatId',
+      ));
+    });
+  }
+
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partCatIdEqualTo(int? value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'partCatId',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partCatIdGreaterThan(
+    int? value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'partCatId',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partCatIdLessThan(
+    int? value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'partCatId',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partCatIdBetween(
+    int? lower,
+    int? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'partCatId',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
       ));
     });
   }
@@ -753,6 +836,7 @@ RebrickablePart _$RebrickablePartFromJson(Map<String, dynamic> json) =>
       imgUrl: json['part_img_url'] as String?,
       url: json['part_url'] as String?,
       externalIds: json['external_ids'],
+      partCatId: (json['part_cat_id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$RebrickablePartToJson(RebrickablePart instance) =>
@@ -761,5 +845,6 @@ Map<String, dynamic> _$RebrickablePartToJson(RebrickablePart instance) =>
       'name': instance.name,
       'part_img_url': instance.imgUrl,
       'part_url': instance.url,
+      'part_cat_id': instance.partCatId,
       'external_ids': instance.externalIds,
     };
