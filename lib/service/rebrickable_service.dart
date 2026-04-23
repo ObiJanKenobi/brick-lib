@@ -5,12 +5,17 @@ import 'package:brick_lib/model/rebrickable_color.dart';
 import 'package:brick_lib/model/rebrickable_part.dart';
 import 'package:brick_lib/model/rebrickable_part_category.dart';
 import 'package:brick_lib/model/rebrickable_part_list.dart';
+import 'package:brick_lib/model/rebrickable_set.dart';
 import 'package:brick_lib/request/GetColors.dart';
 import 'package:brick_lib/request/GetPartCategories.dart';
+import 'package:brick_lib/request/GetPartColor.dart';
 import 'package:brick_lib/request/GetPartDetail.dart';
 import 'package:brick_lib/request/GetPartDetailFromList.dart';
+import 'package:brick_lib/request/GetPartsInList.dart';
+import 'package:brick_lib/request/GetSetParts.dart';
 import 'package:brick_lib/request/GetUserPartLists.dart';
 import 'package:brick_lib/request/GetUserPartsByPartNum.dart';
+import 'package:brick_lib/request/GetUserSets.dart';
 import 'package:brick_lib/request/login_request.dart';
 import 'package:brick_lib/request/request.dart';
 import 'package:collection/collection.dart';
@@ -108,6 +113,18 @@ class RebrickableService {
 
   String? _userToken;
 
+  String? get userToken => _userToken;
+
+  bool get loggedIn => _userToken != null;
+
+  void restoreToken(String token) {
+    _userToken = token;
+  }
+
+  void logout() {
+    _userToken = null;
+  }
+
   Future<String?> login(username, password) async {
     log.i("Getting usertoken");
     try {
@@ -172,6 +189,97 @@ class RebrickableService {
       log.e(e);
       return null;
     }
+  }
+
+  static const _defaultSpacing = Duration(milliseconds: 250);
+  DateTime? _lastRequestAt;
+
+  Future<void> _throttle(Duration spacing) async {
+    final now = DateTime.now();
+    if (_lastRequestAt != null) {
+      final sinceLast = now.difference(_lastRequestAt!);
+      if (sinceLast < spacing) {
+        await Future.delayed(spacing - sinceLast);
+      }
+    }
+    _lastRequestAt = DateTime.now();
+  }
+
+  Future<T?> _retry<T>(
+    Future<T?> Function() fn, {
+    int attempts = 5,
+    Duration spacing = _defaultSpacing,
+  }) async {
+    Object? last;
+    for (var i = 0; i < attempts; i++) {
+      await _throttle(spacing);
+      try {
+        return await fn();
+      } catch (e) {
+        last = e;
+        final msg = e.toString();
+        final isRateLimit = msg.contains('429') || msg.contains('Too Many Requests');
+        log.w('Request failed (attempt ${i + 1}/$attempts)${isRateLimit ? " [rate limited]" : ""}: $e');
+        if (i < attempts - 1) {
+          final baseMs = isRateLimit ? 2000 : 500;
+          await Future.delayed(Duration(milliseconds: baseMs * (1 << i)));
+        }
+      }
+    }
+    throw last ?? Exception('retry exhausted');
+  }
+
+  Future<List<RebrickableUserSet>> getUserSets() async {
+    assert(_userToken != null);
+    final all = <RebrickableUserSet>[];
+    var page = 1;
+    while (true) {
+      final result = await _retry(() => GetUserSets(_userToken!, page: page).send());
+      if (result == null) break;
+      all.addAll(result.items);
+      if (!result.hasNext) break;
+      page++;
+    }
+    return all;
+  }
+
+  Future<PartColorInfo?> getPartColor(String partNum, int colorId) async {
+    try {
+      return await _retry(() => GetPartColor(partNum, colorId).send());
+    } catch (e) {
+      log.w('getPartColor($partNum, $colorId) failed: $e');
+      return null;
+    }
+  }
+
+  Future<List<RebrickablePartListItem>> getSetParts(String setNum) async {
+    final all = <RebrickablePartListItem>[];
+    var page = 1;
+    while (true) {
+      final result = await _retry(
+        () => GetSetParts(setNum, page: page).send(),
+        spacing: const Duration(milliseconds: 500),
+      );
+      if (result == null) break;
+      all.addAll(result.items);
+      if (!result.hasNext) break;
+      page++;
+    }
+    return all;
+  }
+
+  Future<List<RebrickablePartListItem>> getPartListItems(int listId) async {
+    assert(_userToken != null);
+    final all = <RebrickablePartListItem>[];
+    var page = 1;
+    while (true) {
+      final result = await _retry(() => GetPartsInList(_userToken!, listId, page: page).send());
+      if (result == null) break;
+      all.addAll(result.items);
+      if (!result.hasNext) break;
+      page++;
+    }
+    return all;
   }
 
   Future<List<RebrickablePartCategory>> getPartCategories() async {

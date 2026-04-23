@@ -2,31 +2,30 @@ import 'package:brick_lib/model/rebrickable_part_list_item.dart';
 import 'package:brick_lib/request/request.dart';
 import 'package:dio/dio.dart';
 
-class GetPartsInListResult {
-  GetPartsInListResult(this.items, this.hasNext);
+class GetSetPartsResult {
+  GetSetPartsResult(this.items, this.hasNext);
   final List<RebrickablePartListItem> items;
   final bool hasNext;
 }
 
-class GetPartsInList extends Request<GetPartsInListResult?> {
+class GetSetParts extends Request<GetSetPartsResult?> {
   @override
-  String get path => '/users/$userToken/partlists/$listId/parts/';
+  String get path => '/lego/sets/$setNum/parts/';
 
   @override
   Map<String, dynamic>? get queryParams => {"page": page, "page_size": pageSize, "inc_color_details": 1};
 
-  final int pageSize;
-  final String userToken;
-  final int listId;
+  final String setNum;
   final int page;
+  final int pageSize;
 
-  GetPartsInList(this.userToken, this.listId, {this.pageSize = 1000, this.page = 1});
+  GetSetParts(this.setNum, {this.page = 1, this.pageSize = 1000});
 
   @override
-  GetPartsInListResult? handleResponse(Response response) {
+  GetSetPartsResult? handleResponse(Response response) {
     final List<dynamic> results = response.data?["results"] ?? [];
     final next = response.data?["next"];
     final items = results.map((e) => RebrickablePartListItem.fromJson(e as Map<String, dynamic>)).toList();
-    return GetPartsInListResult(items, next != null);
+    return GetSetPartsResult(items, next != null);
   }
 }

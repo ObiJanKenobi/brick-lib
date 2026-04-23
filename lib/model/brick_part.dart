@@ -1,7 +1,7 @@
 // This file is "main.dart"
 import 'package:brick_lib/model/rebrickable_part.dart';
 import 'package:flutter/foundation.dart';
-import 'package:isar/isar.dart';
+import 'package:isar_community/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // optional: Since our BrickPart class is serializable, we must add this line.

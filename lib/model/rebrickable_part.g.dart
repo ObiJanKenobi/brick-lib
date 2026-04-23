@@ -120,8 +120,10 @@ P _rebrickablePartDeserializeProp<P>(
   }
 }
 
-extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, RebrickablePart, QFilterCondition> {
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlIsNull() {
+extension RebrickablePartQueryFilter
+    on QueryBuilder<RebrickablePart, RebrickablePart, QFilterCondition> {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'imgUrl',
@@ -129,7 +131,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlIsNotNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'imgUrl',
@@ -137,7 +140,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlEqualTo(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
@@ -150,7 +154,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlGreaterThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -165,7 +170,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlLessThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -180,7 +186,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlBetween(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -199,7 +206,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlStartsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -212,7 +220,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlEndsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -225,7 +234,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'imgUrl',
@@ -235,7 +245,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'imgUrl',
@@ -245,7 +256,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlIsEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'imgUrl',
@@ -254,7 +266,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> imgUrlIsNotEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      imgUrlIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'imgUrl',
@@ -263,7 +276,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameIsNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'name',
@@ -271,7 +285,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameIsNotNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'name',
@@ -279,7 +294,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameEqualTo(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
@@ -292,7 +308,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameGreaterThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -307,7 +324,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameLessThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -322,7 +340,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameBetween(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -341,7 +360,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameStartsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -354,7 +374,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameEndsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -367,7 +388,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'name',
@@ -377,7 +399,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'name',
@@ -387,7 +410,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameIsEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'name',
@@ -396,7 +420,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> nameIsNotEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      nameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
@@ -405,7 +430,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumIsNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'partNum',
@@ -413,7 +439,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumIsNotNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'partNum',
@@ -421,7 +448,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumEqualTo(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
@@ -434,7 +462,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumGreaterThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -449,7 +478,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumLessThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -464,7 +494,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumBetween(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -483,7 +514,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumStartsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -496,7 +528,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumEndsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -509,7 +542,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'partNum',
@@ -519,7 +553,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'partNum',
@@ -529,7 +564,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumIsEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'partNum',
@@ -538,7 +574,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> partNumIsNotEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      partNumIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'partNum',
@@ -547,7 +584,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlIsNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'url',
@@ -555,7 +593,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlIsNotNull() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'url',
@@ -563,7 +602,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlEqualTo(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
@@ -576,7 +616,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlGreaterThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -591,7 +632,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlLessThan(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -606,7 +648,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlBetween(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -625,7 +668,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlStartsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -638,7 +682,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlEndsWith(
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -651,7 +696,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'url',
@@ -661,7 +707,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'url',
@@ -671,7 +718,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlIsEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'url',
@@ -680,7 +728,8 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
     });
   }
 
-  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition> urlIsNotEmpty() {
+  QueryBuilder<RebrickablePart, RebrickablePart, QAfterFilterCondition>
+      urlIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'url',
@@ -690,13 +739,15 @@ extension RebrickablePartQueryFilter on QueryBuilder<RebrickablePart, Rebrickabl
   }
 }
 
-extension RebrickablePartQueryObject on QueryBuilder<RebrickablePart, RebrickablePart, QFilterCondition> {}
+extension RebrickablePartQueryObject
+    on QueryBuilder<RebrickablePart, RebrickablePart, QFilterCondition> {}
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RebrickablePart _$RebrickablePartFromJson(Map<String, dynamic> json) => RebrickablePart(
+RebrickablePart _$RebrickablePartFromJson(Map<String, dynamic> json) =>
+    RebrickablePart(
       partNum: json['part_num'] as String?,
       name: json['name'] as String?,
       imgUrl: json['part_img_url'] as String?,
@@ -704,7 +755,8 @@ RebrickablePart _$RebrickablePartFromJson(Map<String, dynamic> json) => Rebricka
       externalIds: json['external_ids'],
     );
 
-Map<String, dynamic> _$RebrickablePartToJson(RebrickablePart instance) => <String, dynamic>{
+Map<String, dynamic> _$RebrickablePartToJson(RebrickablePart instance) =>
+    <String, dynamic>{
       'part_num': instance.partNum,
       'name': instance.name,
       'part_img_url': instance.imgUrl,

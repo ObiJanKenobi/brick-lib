@@ -23,14 +23,13 @@ dependencies:
 
   get_it: ^7.2.0
   get_it_mixin: ^3.1.4
-  freezed: ^2.2.0
-  freezed_annotation: ^2.2.0
+  freezed_annotation: ^3.1.0
   flutter_native_splash: ^2.2.17
   dio: 5.7.0
 
   intl: ^0.18.0
 
-  isar: ^3.1.0+1
+  isar_community: ^3.3.0
   url_launcher: ^6.1.8
   collection: ^1.17.0
 
@@ -39,7 +38,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
-  isar_generator: ^3.1.0+1
+  freezed: ^3.2.5
+  isar_community_generator: ^3.3.0-dev.3
   build_runner: ^2.1.7
   json_serializable: ^6.1.4
 

@@ -10,7 +10,7 @@ part 'brick_color.freezed.dart';
 part 'brick_color.g.dart';
 
 @freezed
-class BrickColor with _$BrickColor {
+abstract class BrickColor with _$BrickColor {
   const factory BrickColor({
     required String legoColor,
     required String bricklinkColor,

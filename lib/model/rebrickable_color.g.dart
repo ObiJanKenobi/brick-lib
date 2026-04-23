@@ -98,8 +98,10 @@ P _rebrickableColorDeserializeProp<P>(
   }
 }
 
-extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, RebrickableColor, QFilterCondition> {
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> idEqualTo(int value) {
+extension RebrickableColorQueryFilter
+    on QueryBuilder<RebrickableColor, RebrickableColor, QFilterCondition> {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      idEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'id',
@@ -108,7 +110,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      idGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -121,7 +124,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> idLessThan(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      idLessThan(
     int value, {
     bool include = false,
   }) {
@@ -134,7 +138,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> idBetween(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      idBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -151,7 +156,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> isTransIsNull() {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      isTransIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'isTrans',
@@ -159,7 +165,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> isTransIsNotNull() {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      isTransIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'isTrans',
@@ -167,7 +174,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> isTransEqualTo(bool? value) {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      isTransEqualTo(bool? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'isTrans',
@@ -176,7 +184,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameEqualTo(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -189,7 +198,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameGreaterThan(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -204,7 +214,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameLessThan(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -219,7 +230,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameBetween(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -238,7 +250,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameStartsWith(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -251,7 +264,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameEndsWith(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -264,7 +278,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'name',
@@ -274,7 +289,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'name',
@@ -284,7 +300,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameIsEmpty() {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'name',
@@ -293,7 +310,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> nameIsNotEmpty() {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      nameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
@@ -302,7 +320,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbEqualTo(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -315,7 +334,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbGreaterThan(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -330,7 +350,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbLessThan(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -345,7 +366,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbBetween(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -364,7 +386,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbStartsWith(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -377,7 +400,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbEndsWith(
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -390,7 +414,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbContains(String value, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'rgb',
@@ -400,7 +425,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbMatches(String pattern, {bool caseSensitive = true}) {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'rgb',
@@ -410,7 +436,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbIsEmpty() {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'rgb',
@@ -419,7 +446,8 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
     });
   }
 
-  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition> rgbIsNotEmpty() {
+  QueryBuilder<RebrickableColor, RebrickableColor, QAfterFilterCondition>
+      rgbIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'rgb',
@@ -429,20 +457,23 @@ extension RebrickableColorQueryFilter on QueryBuilder<RebrickableColor, Rebricka
   }
 }
 
-extension RebrickableColorQueryObject on QueryBuilder<RebrickableColor, RebrickableColor, QFilterCondition> {}
+extension RebrickableColorQueryObject
+    on QueryBuilder<RebrickableColor, RebrickableColor, QFilterCondition> {}
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RebrickableColor _$RebrickableColorFromJson(Map<String, dynamic> json) => RebrickableColor(
+RebrickableColor _$RebrickableColorFromJson(Map<String, dynamic> json) =>
+    RebrickableColor(
       rgb: json['rgb'] as String? ?? "",
       name: json['name'] as String? ?? "",
       id: (json['id'] as num?)?.toInt() ?? 0,
       externalIds: json['external_ids'],
     )..isTrans = json['is_trans'] as bool?;
 
-Map<String, dynamic> _$RebrickableColorToJson(RebrickableColor instance) => <String, dynamic>{
+Map<String, dynamic> _$RebrickableColorToJson(RebrickableColor instance) =>
+    <String, dynamic>{
       'rgb': instance.rgb,
       'name': instance.name,
       'id': instance.id,

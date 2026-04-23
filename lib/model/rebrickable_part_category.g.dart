@@ -88,8 +88,10 @@ P _rebrickablePartCategoryDeserializeProp<P>(
   }
 }
 
-extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QFilterCondition> {
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> idEqualTo(int value) {
+extension RebrickablePartCategoryQueryFilter on QueryBuilder<
+    RebrickablePartCategory, RebrickablePartCategory, QFilterCondition> {
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> idEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'id',
@@ -98,7 +100,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> idGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -111,7 +114,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> idLessThan(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> idLessThan(
     int value, {
     bool include = false,
   }) {
@@ -124,7 +128,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> idBetween(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> idBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -141,7 +146,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameEqualTo(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -154,7 +160,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameGreaterThan(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -169,7 +176,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameLessThan(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -184,7 +192,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameBetween(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -203,7 +212,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameStartsWith(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -216,7 +226,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameEndsWith(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -229,8 +240,9 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameContains(String value,
-      {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+          QAfterFilterCondition>
+      nameContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'name',
@@ -240,8 +252,9 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameMatches(String pattern,
-      {bool caseSensitive = true}) {
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+          QAfterFilterCondition>
+      nameMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'name',
@@ -251,7 +264,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameIsEmpty() {
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'name',
@@ -260,7 +274,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> nameIsNotEmpty() {
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> nameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
@@ -269,7 +284,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> partCountEqualTo(int value) {
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> partCountEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'partCount',
@@ -278,7 +294,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> partCountGreaterThan(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> partCountGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -291,7 +308,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> partCountLessThan(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> partCountLessThan(
     int value, {
     bool include = false,
   }) {
@@ -304,7 +322,8 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
     });
   }
 
-  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QAfterFilterCondition> partCountBetween(
+  QueryBuilder<RebrickablePartCategory, RebrickablePartCategory,
+      QAfterFilterCondition> partCountBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -322,19 +341,24 @@ extension RebrickablePartCategoryQueryFilter on QueryBuilder<RebrickablePartCate
   }
 }
 
-extension RebrickablePartCategoryQueryObject on QueryBuilder<RebrickablePartCategory, RebrickablePartCategory, QFilterCondition> {}
+extension RebrickablePartCategoryQueryObject on QueryBuilder<
+    RebrickablePartCategory, RebrickablePartCategory, QFilterCondition> {}
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RebrickablePartCategory _$RebrickablePartCategoryFromJson(Map<String, dynamic> json) => RebrickablePartCategory(
+RebrickablePartCategory _$RebrickablePartCategoryFromJson(
+        Map<String, dynamic> json) =>
+    RebrickablePartCategory(
       id: (json['id'] as num?)?.toInt() ?? 1,
       name: json['name'] as String? ?? "",
       partCount: (json['part_count'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$RebrickablePartCategoryToJson(RebrickablePartCategory instance) => <String, dynamic>{
+Map<String, dynamic> _$RebrickablePartCategoryToJson(
+        RebrickablePartCategory instance) =>
+    <String, dynamic>{
       'part_count': instance.partCount,
       'name': instance.name,
       'id': instance.id,
