@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 class GetPartDetail extends Request<RebrickablePart?> {
   @override
-  String get path => '/lego/parts/$partNum';
+  String get path => '/lego/parts/$partNum/';
 
   final String partNum;
 

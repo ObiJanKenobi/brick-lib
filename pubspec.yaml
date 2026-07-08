@@ -32,6 +32,7 @@ dependencies:
   isar_community: ^3.3.0
   url_launcher: ^6.1.8
   collection: ^1.17.0
+  native_dio_adapter: ^1.6.0
 
 dev_dependencies:
   flutter_test:
