@@ -1,16 +1,16 @@
 LEGO,Bricklink,Rebrickable,Gobricks,LDD Name,Name,RGB
-26,11,0,26,Black,Black,05131D
-28,6,2,28,Dark Green,Green,237841
-21,5,4,21,Bright Red,Red,C91A09
-221,47,5,221,Dark Pink,Dark Pink,C870A0
+26,11,0,80,Black,Black,05131D
+28,6,2,40,Dark Green,Green,237841
+21,5,4,10,Bright Red,Red,C91A09
+221,47,5,12,Dark Pink,Dark Pink,C870A0
 23,7,1,50,Bright Blue,Blue,0055BF
 40,12,47,180,Transparent,Trans Clear,FCFCFC
 4,25,12,,Brick Red,Salmon,F2705E
 1007,23,13,,Red Violet,Pink,FC97AC
 24,3,14,30,Bright Yellow,Yellow,F2CD37
 43,14,33,150,Trans Blue,Trans Dark Blue,0020A0
-24,3,14,,Bright Yellow,Light Yellow,F2CD37
-1,1,15,15,White,White,FFFFFF
+24,3,14,30,Bright Yellow,Light Yellow,F2CD37
+1,1,15,90,White,White,FFFFFF
 42,15,41,152,Trans Light Blue,Trans Light Blue,AEEFEC
 49,16,42,141,Trans Fluore Green,Trans Neon Green,F8F184
 41,17,36,110,Trans Red,Trans Red,C91A09
@@ -20,15 +20,15 @@ LEGO,Bricklink,Rebrickable,Gobricks,LDD Name,Name,RGB
 48,20,34,140,Trans Green,Trans Green,84B68D
 39,44,20,,Light bluish violet,Light Violet,C9CAE2
 104,24,22,,Bright Violet,Purple,81007B
-106,4,25,106,Bright Orange,Orange,FE8A18
+106,4,25,21,Bright Orange,Orange,FE8A18
 124,71,26,13,Bright Reddish Violet,Magenta,923978
-138,69,28,138,Sand Yellow,Dark Tan,958A73
+138,69,28,34,Sand Yellow,Dark Tan,958A73
 324,157,30,62,Medium Lavender,Medium Lavender,AC78BA
 119,34,27,42,Bright Yellowish Green,Lime,BBE90B
 37,36,10,43,Bright Green,Bright Green,4B9F4A
-107,39,3,xxx,Teal,Dark Turquoise,008F9B
+107,39,3,,Teal,Dark Turquoise,008F9B
 111,13,40,170,Trans Brown,Trans Black,635F52
-42,15,41,42,Trans-Light Blue,Trans-Light Blue,AEEFEC
+42,15,41,152,Trans-Light Blue,Trans-Light Blue,AEEFEC
 102,42,73,52,Medium Blue,Medium Blue,5A93DB
 221,47,5,12,Bright Purple,Dark Pink,C870A0
 151,48,378,48,Sand Green,Sand Green,A0BCAC
@@ -37,11 +37,11 @@ LEGO,Bricklink,Rebrickable,Gobricks,LDD Name,Name,RGB
 135,55,379,54,Sand Blue,Sand Blue,6074A1
 140,63,272,55,Earth Blue,Dark Blue,0A3463
 38,68,484,83,Dark Orange,Dark Orange,A95500
-192,88,70,192,Reddish Brown,Reddish Brown,582A12
-194,86,71,194,Medium Stone Grey,Light Bluish Gray,A0A5A9
-199,85,72,199,Dark Stone Grey,Dark Bluish Gray,6C6E68
+192,88,70,81,Reddish Brown,Reddish Brown,582A12
+194,86,71,71,Medium Stone Grey,Light Bluish Gray,A0A5A9
+199,85,72,72,Dark Stone Grey,Dark Bluish Gray,6C6E68
 141,80,288,47,Earth Green,Dark Green,184632
-312,150,84,312,Medium Nougat,Medium Nougat,AA7D55
+312,150,84,84,Medium Nougat,Medium Nougat,AA7D55
 268,89,85,60,Medium Lilac,Dark Purple,3F3691
 283,90,78,32,Light Nougat,Light Nougat,F6D7B3
 315,95,179,73,Silver Metallic,Flat Silver,898788
@@ -58,6 +58,6 @@ LEGO,Bricklink,Rebrickable,Gobricks,LDD Name,Name,RGB
 330,155,326,49,Olive Green,Olive Green,9B9A5A
 322,156,322,46,Medium Azur,Medium Azure,36AEBF
 326,158,158,44,Spring Yellowish Green,Yellowish Green,DFEEA5
-298,95,80,179,Flat Silver,Metallic Silver,A5A9B4
-154,59,320,154,New Dark Red,Dark Red,720E0F
-1017,220,1050,1017,Coral,Coral,FF698F
+298,95,80,73,Flat Silver,Metallic Silver,A5A9B4
+154,59,320,14,New Dark Red,Dark Red,720E0F
+1017,220,1050,,Coral,Coral,FF698F
