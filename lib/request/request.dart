@@ -6,6 +6,7 @@ import 'package:brick_lib/util/debug.dart';
 // import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:native_dio_adapter/native_dio_adapter.dart';
+import 'package:brick_lib/request/curl_http_adapter.dart';
 
 // import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter/foundation.dart';
@@ -193,11 +194,14 @@ Future<Dio> getDio() async {
   Dio dio = Dio();
 
   // Rebrickable's Cloudflare bot protection blocks the default dart:io TLS
-  // fingerprint (HTTP 403 / cf error 1006). Route requests through the
-  // OS-native HTTP stack — NSURLSession on iOS/macOS, Cronet on Android —
-  // whose fingerprint is accepted. On other platforms NativeAdapter falls back
-  // to the default adapter (still blocked, but those aren't the shipping targets).
-  dio.httpClientAdapter = NativeAdapter();
+  // fingerprint (HTTP 403 / cf error 1006/1010). Route requests through the
+  // OS-native HTTP stack, whose fingerprint is accepted:
+  //   - iOS/macOS: NSURLSession, Android: Cronet — via native_dio_adapter.
+  //   - Windows: curl.exe (Schannel). native_dio_adapter has no Windows
+  //     backend and would fall back to the still-blocked dart:io stack, so we
+  //     shell out to the OS-bundled curl instead (see CurlHttpAdapter).
+  dio.httpClientAdapter =
+      Platform.isWindows ? CurlHttpAdapter() : NativeAdapter();
 
   dio.options.headers['Authorization'] = "key $RB_API_KEY";
 
