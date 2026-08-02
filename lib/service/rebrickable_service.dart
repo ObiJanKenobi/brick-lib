@@ -6,13 +6,16 @@ import 'package:brick_lib/model/rebrickable_part.dart';
 import 'package:brick_lib/model/rebrickable_part_category.dart';
 import 'package:brick_lib/model/rebrickable_part_list.dart';
 import 'package:brick_lib/model/rebrickable_set.dart';
+import 'package:brick_lib/model/rebrickable_moc.dart';
 import 'package:brick_lib/request/AddUserSet.dart';
+import 'package:brick_lib/request/GetBuildMatch.dart';
 import 'package:brick_lib/request/GetColors.dart';
 import 'package:brick_lib/request/GetPartCategories.dart';
 import 'package:brick_lib/request/GetPartColor.dart';
 import 'package:brick_lib/request/GetPartDetail.dart';
 import 'package:brick_lib/request/GetPartDetailFromList.dart';
 import 'package:brick_lib/request/GetPartsInList.dart';
+import 'package:brick_lib/request/GetSetAlternates.dart';
 import 'package:brick_lib/request/GetSetParts.dart';
 import 'package:brick_lib/request/GetUserPartLists.dart';
 import 'package:brick_lib/request/GetUserPartsByPartNum.dart';
@@ -260,6 +263,38 @@ class RebrickableService {
       page++;
     }
     return all;
+  }
+
+  /// Alternate builds for a set - MOCs whose parts are all contained in it.
+  ///
+  /// Note there is no MOC inventory endpoint in the API, so the parts of an
+  /// alternate cannot be imported automatically; [RebrickableMoc.mocUrl] is the
+  /// way to reach the part list.
+  Future<List<RebrickableMoc>> getSetAlternates(String setNum) async {
+    final all = <RebrickableMoc>[];
+    var page = 1;
+    while (true) {
+      final result = await _retry(() => GetSetAlternates(setNum, page: page).send());
+      if (result == null) break;
+      all.addAll(result.items);
+      if (!result.hasNext) break;
+      page++;
+    }
+    return all;
+  }
+
+  /// Rebrickable's Build Match for [setNum] against the user's whole
+  /// collection. Returns null when unavailable (not logged in, or the endpoint
+  /// rejects a MOC number) - callers should treat that as "unknown", not an
+  /// error.
+  Future<BuildMatch?> getBuildMatch(String setNum) async {
+    if (_userToken == null) return null;
+    try {
+      return await GetBuildMatch(_userToken!, setNum).send();
+    } catch (e) {
+      log.w('getBuildMatch($setNum) unavailable: $e');
+      return null;
+    }
   }
 
   /// Reads a single set out of the user's collection, or null if it is not in
