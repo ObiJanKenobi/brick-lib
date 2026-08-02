@@ -13,13 +13,21 @@ class GetUserSets extends Request<GetUserSetsResult?> {
   String get path => '/users/$userToken/sets/';
 
   @override
-  Map<String, dynamic>? get queryParams => {"page": page, "page_size": pageSize};
+  Map<String, dynamic>? get queryParams => {
+        "page": page,
+        "page_size": pageSize,
+        if (setNum != null) "set_num": setNum,
+      };
 
   final String userToken;
   final int page;
   final int pageSize;
 
-  GetUserSets(this.userToken, {this.page = 1, this.pageSize = 500});
+  /// Restricts the result to a single set. Used to read back a set's real
+  /// quantity right after adding it, instead of pulling the whole collection.
+  final String? setNum;
+
+  GetUserSets(this.userToken, {this.page = 1, this.pageSize = 500, this.setNum});
 
   @override
   GetUserSetsResult? handleResponse(Response response) {

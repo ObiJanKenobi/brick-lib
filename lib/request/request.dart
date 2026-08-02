@@ -95,6 +95,10 @@ abstract class Request<T> {
   /// Override this method to manipulate or preprocess the return value of [send]
   T handleResponse(Response response) => response.data;
 
+  /// Status codes [send] treats as success. Override for endpoints that answer
+  /// 201 Created or 204 No Content instead of 200 OK.
+  bool isSuccess(int statusCode) => statusCode == 200;
+
   @nonVirtual
   Future<T?> send() async {
     if (_busy) {
@@ -139,7 +143,7 @@ abstract class Request<T> {
     int statusCode = response.statusCode ?? -1;
     Debug.request("$debugName finished with [$statusCode]");
 
-    if (statusCode != 200) {
+    if (!isSuccess(statusCode)) {
       throw ArgumentError(response.statusMessage, statusCode.toString());
     }
     // switch (statusCode) {

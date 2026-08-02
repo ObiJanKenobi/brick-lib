@@ -6,6 +6,7 @@ import 'package:brick_lib/model/rebrickable_part.dart';
 import 'package:brick_lib/model/rebrickable_part_category.dart';
 import 'package:brick_lib/model/rebrickable_part_list.dart';
 import 'package:brick_lib/model/rebrickable_set.dart';
+import 'package:brick_lib/request/AddUserSet.dart';
 import 'package:brick_lib/request/GetColors.dart';
 import 'package:brick_lib/request/GetPartCategories.dart';
 import 'package:brick_lib/request/GetPartColor.dart';
@@ -16,6 +17,7 @@ import 'package:brick_lib/request/GetSetParts.dart';
 import 'package:brick_lib/request/GetUserPartLists.dart';
 import 'package:brick_lib/request/GetUserPartsByPartNum.dart';
 import 'package:brick_lib/request/GetUserSets.dart';
+import 'package:brick_lib/request/SearchSets.dart';
 import 'package:brick_lib/request/login_request.dart';
 import 'package:brick_lib/request/request.dart';
 import 'package:collection/collection.dart';
@@ -258,6 +260,55 @@ class RebrickableService {
       page++;
     }
     return all;
+  }
+
+  /// Reads a single set out of the user's collection, or null if it is not in
+  /// there. Cheaper than [getUserSets] when only one set is of interest.
+  Future<RebrickableUserSet?> getUserSet(String setNum) async {
+    assert(_userToken != null);
+    final result = await _retry(
+      () => GetUserSets(_userToken!, setNum: setNum, pageSize: 1).send(),
+    );
+    return result?.items.firstOrNull;
+  }
+
+  /// Searches the set catalogue by number or name. Returns an empty list
+  /// rather than throwing, so a typo in a search box is not an error state.
+  Future<List<RebrickableSet>> searchSets(String query, {int pageSize = 30}) async {
+    if (query.trim().isEmpty) return [];
+    try {
+      final results = await _retry(() => SearchSets(query.trim(), pageSize: pageSize).send());
+      return results ?? [];
+    } catch (e) {
+      log.w('searchSets("$query") failed: $e');
+      return [];
+    }
+  }
+
+  /// Adds [setNum] to the logged-in user's Rebrickable collection.
+  ///
+  /// Throws if the call fails, so callers can surface the reason - unlike the
+  /// read paths, a silent failure here would leave the user thinking the set
+  /// was added.
+  Future<void> addUserSet(
+    String setNum, {
+    int quantity = 1,
+    bool includeSpares = true,
+  }) async {
+    assert(_userToken != null);
+    // Deliberately not routed through _retry: this POST is not idempotent -
+    // adding a set already in the collection bumps its quantity - so retrying
+    // a call that timed out after the server had created it would add twice.
+    await _throttle(_defaultSpacing);
+    final ok = await AddUserSet(
+      _userToken!,
+      setNum,
+      quantity: quantity,
+      includeSpares: includeSpares,
+    ).send();
+    if (ok != true) {
+      throw StateError('Adding $setNum to the Rebrickable collection failed');
+    }
   }
 
   Future<PartColorInfo?> getPartColor(String partNum, int colorId) async {
